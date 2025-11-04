@@ -1,6 +1,7 @@
 import mysql.connector
 from sql_connection import get_sql_connection
 
+
 def get_all_products(connection):
     cursor = connection.cursor()
 
