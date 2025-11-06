@@ -1,24 +1,59 @@
 from flask import Flask, request, jsonify
-import products_dao
+import products_dao, uoms_dao
 from sql_connection import get_sql_connection
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 connection = get_sql_connection()
 @app.route('/getProducts', methods=['GET'])
 def get_products():
     products = products_dao.get_all_products(connection)
-    response = jsonify(products)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    response = products
     return response
 
-@app.route('/deleteProduct', methods=['POST'])
+# Remove imports from _dao files and document in GitHub commits.
+# Removed unnecessary imports from dao files,
+# Fixed catch block error handling.
+# Added products fetching functions for front/backend.
+# Added product adding/editing/deleting functions.
+# Added uom fetching functions.
+# Added server endpoints.
+# Added Services for to make a scalable app.
+# Removed unnecessary response json parsing.
+
+@app.route('/editProduct', methods=['PUT'])
+def edit_product():
+    data = request.get_json()
+    response = products_dao.edit_product(connection, request.get_json())
+    return jsonify(response)
+
+
+@app.route('/addProduct', methods=['POST'])
+def add_product():
+    product_id = products_dao.insert_new_product(connection, request.get_json())
+    response = {
+        'new_product_id': product_id
+    }
+    return response
+
+
+
+@app.route('/deleteProduct', methods=['DELETE'])
 def delete_product():
-    return_id = products_dao.delete_product(connection, request.form['product_id'])
-    response.jsonify({
-        'product_id': return_id
-    })
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    data = request.get_json()
+    product_id = data['product_id']
+    products_dao.delete_product(connection, product_id)
+    response = {
+        'deleted_product_id': product_id
+    }
+    return response
+
+@app.route('/getUoms', methods=['GET'])
+def get_uoms():
+    uoms = uoms_dao.get_uoms(connection)
+    response = uoms
     return response
 
 if __name__ == "__main__":
