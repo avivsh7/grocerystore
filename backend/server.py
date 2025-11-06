@@ -13,16 +13,6 @@ def get_products():
     response = products
     return response
 
-# Remove imports from _dao files and document in GitHub commits.
-# Removed unnecessary imports from dao files,
-# Fixed catch block error handling.
-# Added products fetching functions for front/backend.
-# Added product adding/editing/deleting functions.
-# Added uom fetching functions.
-# Added server endpoints.
-# Added Services for to make a scalable app.
-# Removed unnecessary response json parsing.
-
 @app.route('/editProduct', methods=['PUT'])
 def edit_product():
     data = request.get_json()
