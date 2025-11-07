@@ -12,7 +12,7 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
     const prodId = product.product_id;
 
     useEffect(() => {
-    fetchUoms();
+        fetchUoms();
     }, [])
 
     async function fetchUoms() {
@@ -41,9 +41,9 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
                 <div className="popUpDiv">
                     <h3>Edit a product!</h3>
                     Product name: <br /> <input onChange={(e) => setprodName(e.target.value)} type="text" value={prodName} /> <br />
-                    Unit: <br /> <select onChange={(e) => setUomId(e.target.value)} >
+                    Unit: <br /> <select value={uomId} onChange={(e) => setUomId(e.target.value)} >
                         {uoms.map((uom) => (
-                          <option value={uom.uom_id} key={uom.uom_id}>{uom.uom_name}</option>
+                            <option value={uom.uom_id} key={uom.uom_id}>{uom.uom_name}</option>
                         ))}
 
                     </select>
@@ -51,7 +51,6 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
                     Price: <br /> <input onChange={(e) => setPrice(e.target.value)} value={price} type="number" /> <br />
                     <button onClick={() => handleEdit()} className="saveBtn">Save</button>
                     <button onClick={() => setShowEditProdUi(false)} className="cancelBtn">Cancel</button>
-
                 </div>
             }
 
