@@ -97,7 +97,6 @@ const ProductManagement = () => {
                 showEditProdUi={showEditProdUi}
                 setShowEditProdUi={setShowEditProdUi}
                 product={product}
-                setProducts={setProducts}
             />
             }
         </>

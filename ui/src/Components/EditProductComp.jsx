@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios'
 import { updateProduct } from "../Services/Product/editProduct.js";
+import { getUoms } from "../Services/Uom/getUoms.js"
 
-const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, product, setProducts }) => {
+const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, product }) => {
 
     const [prodName, setprodName] = useState(product.name);
+    const [uoms, setUoms] = useState([]);
     const [uomId, setUomId] = useState(product.uom_id);
     const [price, setPrice] = useState(product.price_per_unit);
-    const prodId = product.product_id
+    const prodId = product.product_id;
+
+    useEffect(() => {
+    fetchUoms();
+    }, [])
+
+    async function fetchUoms() {
+        try {
+            const data = await getUoms()
+            setUoms(data);
+        } catch (err) {
+            console.error(err.response);
+        }
+    }
 
     async function handleEdit() {
         try {
@@ -27,8 +42,9 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
                     <h3>Edit a product!</h3>
                     Product name: <br /> <input onChange={(e) => setprodName(e.target.value)} type="text" value={prodName} /> <br />
                     Unit: <br /> <select onChange={(e) => setUomId(e.target.value)} >
-                        <option value={product.uom_id}>{product.uom_name}</option>
-                        <option value={product.uom_id === 1 ? 2 : 1}>{(product.uom_name === 'each') ? 'kg' : 'each'}</option>
+                        {uoms.map((uom) => (
+                          <option value={uom.uom_id} key={uom.uom_id}>{uom.uom_name}</option>
+                        ))}
 
                     </select>
                     <br />

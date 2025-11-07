@@ -5,7 +5,7 @@ import { getUoms } from '../Services/Uom/getUoms.js';
 
 const AddProductComp = ({ fetchProducts, showAddProdUi, setShowAddProdUi }) => {
     const [uoms, setUoms] = useState([]);
-    const [uomId, setUomId] = useState('1');
+    const [uomId, setUomId] = useState('');
     const [prodName, setProdName] = useState('');
     const [price, setPrice] = useState('');
 
@@ -15,6 +15,14 @@ const AddProductComp = ({ fetchProducts, showAddProdUi, setShowAddProdUi }) => {
     }, [])
 
     async function addProduct() {
+        if (prodName.length > 45) {
+            alert('Product name cannot exceed 45 characters!')
+            return;
+        }
+        else if (uomId === '') {
+            alert('Please provide a unit of measurement!')
+            return;
+        }
         try {
             const response = await insertProduct(prodName, uomId, price);
             alert("Product " + prodName + " added successfully!");
@@ -22,7 +30,6 @@ const AddProductComp = ({ fetchProducts, showAddProdUi, setShowAddProdUi }) => {
             fetchProducts();
         } catch (err) {
             console.error(err.response);
-            alert('Product name cannot exceed 45 characters!')
         }
     }
 
