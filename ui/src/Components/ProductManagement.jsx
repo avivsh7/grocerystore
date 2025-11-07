@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { getProducts } from '../Services/getProducts.js';
-import { deleteProd } from '../Services/deleteProduct.js';
+import { getProducts } from '../Services/Product/getProducts.js';
+import { deleteProd } from '../Services/Product/deleteProduct.js';
 import Overlay from './Overlay.jsx';
 import AddProductComp from './AddProductComp.jsx';
 import EditProductComp from './EditProductComp.jsx';

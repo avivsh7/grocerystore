@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from 'axios'
-import { updateProduct } from "../Services/editProduct.js";
+import { updateProduct } from "../Services/Product/editProduct.js";
 
 const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, product, setProducts }) => {
 

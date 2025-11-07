@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { insertProduct } from '../Services/addProduct.js';
-import { getUoms } from '../Services/getUoms.js';
+import { insertProduct } from '../Services/Product/addProduct.js';
+import { getUoms } from '../Services/Uom/getUoms.js';
 
 
 const AddProductComp = ({ fetchProducts, showAddProdUi, setShowAddProdUi }) => {

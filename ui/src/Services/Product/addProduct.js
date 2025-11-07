@@ -9,7 +9,7 @@ export async function insertProduct(prodName, uomId, price) {
             'uom_id': uomId,
             'price_per_unit': price
         })
-        return data; // Returns the new product id
+        return data;
     } catch (err) {
         throw err;
     }
