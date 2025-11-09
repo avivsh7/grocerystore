@@ -1,0 +1,38 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 0 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  gap: 25px; 
+}
+
+.navbar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(0, 80, 210);
+}
+
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: rgb(0, 80, 210);
+}
+
+body {
+  margin: 0;
+  padding-top: 60px;
+}

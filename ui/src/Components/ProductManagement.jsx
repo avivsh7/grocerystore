@@ -52,9 +52,9 @@ const ProductManagement = () => {
     return (
         <>
             {(showAddProdUi || showEditProdUi) && <Overlay />} {/* Overlay for AddProductComp.jsx */}
-            <div>
+            <div className="containerDiv">
                 <span>Product Management</span>
-                <div style={{ borderTop: '1px solid black', width: '1020px', marginLeft: '-10px', }}></div>
+                <div style={{ borderTop: '1px solid black', width: '1500px', marginLeft: '-10px', }}></div>
                 <button onClick={() => {
                     setShowAddProdUi(true);
                 }} className='addProdBtn'>Add A New Product</button>
@@ -62,8 +62,8 @@ const ProductManagement = () => {
                     <thead>
                         <tr>
                             <th>Item</th>
-                            <th>Price</th>
-                            <th>Type</th>
+                            <th>Unit</th>
+                            <th>Price Per Unit</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -71,8 +71,8 @@ const ProductManagement = () => {
                         {products.map(product =>
                             <tr key={product.product_id}>
                                 <td>{product.name}</td>
-                                <td>{product.price_per_unit}</td>
-                                <td> {product.uom_name}</td>
+                                <td className="unitCell">{product.uom_name}</td>
+                                <td className="priceCell"> {product.price_per_unit}</td>
                                 <td style={{ textAlign: 'center' }}>
                                     <button onClick={() => handleEdit(product)}>Edit</button>
                                     <button onClick={() => deleteProduct(product.product_id, product.name)}
