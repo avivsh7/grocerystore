@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/Product/getProducts.js';
 import { deleteProd } from '../Services/Product/deleteProduct.js';
