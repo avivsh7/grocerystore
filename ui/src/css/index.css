@@ -2,13 +2,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  /* This is the fix! */
 }
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.87);
-  background-image: url('./Pictures/supermarket-blur.jpg');
+  background-image: url('../Pictures/supermarket-blur.jpg');
   background-size: cover;
 }
 
@@ -21,7 +22,14 @@ h2 {
 span {
   color: black;
   margin: 5px;
+}
 
+.divider {
+  border-top: 1px solid black;
+  width: 100%;
+  margin: 0 -20px;
+  padding: 0 20px;
+  box-sizing: content-box;
 }
 
 .addProdBtn {
@@ -32,11 +40,35 @@ span {
   float: right;
 }
 
+.addOrderBtn {
+  margin: 8px;
+  padding: 10px;
+  color: white;
+  background: rgb(0, 80, 210);
+  float: right;
+}
+
+.prodMngBtn {
+  margin: 8px;
+  padding: 10px;
+  color: white;
+  background: rgb(0, 80, 210);
+  float: right;
+}
+
+.addEditbuttonsContainer {
+  padding-top: 20px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid #ddd;
-  background-color: white;
+}
+
+.borderlessTable {
+  border-collapse: collapse;
+  border: none;
 }
 
 th,
@@ -46,13 +78,17 @@ td {
   color: black
 }
 
-div {
+.borderlessTable th,
+.borderlessTable td {
+  border: none;
+}
+
+.containerDiv {
   background-color: white;
   margin: 20px auto;
   max-width: 1200px;
   width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
+  padding: 20px;
 }
 
 .popUpDiv {
@@ -60,14 +96,16 @@ div {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -110%);
-  width: 600px;
-  height: 270px;
+  width: 620px;
+  height: 295px;
   background-color: white;
   z-index: 100;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+  padding: 10px;
+
 }
 
 .Overlay::after {
@@ -77,14 +115,37 @@ div {
   content: ''
 }
 
-input {
+.addEditProdInput {
   background-color: rgb(238, 238, 238);
   width: 100%;
+  box-sizing: border-box;
 }
 
-select {
+.addEditProdSelect {
   background-color: rgb(238, 238, 238);
   width: 100%;
+  box-sizing: border-box;
+}
+
+.customerNameInput {
+  background-color: rgb(238, 238, 238);
+  float: right;
+  padding: 10px;
+  margin-top: -10px;
+}
+
+
+.totalDiv {
+  /* This class ensures the total bar is centered and looks like the containerDiv */
+  /* Combine margin-top and margin: auto for centering */
+  margin: 100px auto 20px auto;
+  background-color: white;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 button {
@@ -98,7 +159,7 @@ button {
   color: white;
   background: rgb(238, 96, 86);
   padding: 5px;
-} 
+}
 
 .saveBtn {
   color: white;

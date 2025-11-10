@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from 'axios'
-import { updateProduct } from "../Services/Product/editProduct.js";
-import { getUoms } from "../Services/Uom/getUoms.js"
+import { updateProduct } from "../../Services/Product/editProduct.js";
+import { getUoms } from "../../Services/Uom/getUoms.js"
 
 const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, product }) => {
 
@@ -40,17 +39,19 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
             {showEditProdUi &&
                 <div className="popUpDiv">
                     <h3>Edit a product!</h3>
-                    Product name: <br /> <input onChange={(e) => setprodName(e.target.value)} type="text" value={prodName} /> <br />
-                    Unit: <br /> <select value={uomId} onChange={(e) => setUomId(e.target.value)} >
+                    Product name: <br /> <input className="addEditProdInput" onChange={(e) => setprodName(e.target.value)} type="text" value={prodName} /> <br />
+                    Unit: <br /> <select className="addEditProdSelect" value={uomId} onChange={(e) => setUomId(e.target.value)} >
                         {uoms.map((uom) => (
                             <option value={uom.uom_id} key={uom.uom_id}>{uom.uom_name}</option>
                         ))}
 
                     </select>
                     <br />
-                    Price: <br /> <input onChange={(e) => setPrice(e.target.value)} value={price} type="number" /> <br />
-                    <button onClick={() => handleEdit()} className="saveBtn">Save</button>
-                    <button onClick={() => setShowEditProdUi(false)} className="cancelBtn">Cancel</button>
+                    Price: <br /> <input className="addEditProdInput" onChange={(e) => setPrice(e.target.value)} value={price} type="number" /> <br />
+                    <div className="addEditbuttonsContainer">
+                        <button onClick={() => handleEdit()} className="saveBtn">Save</button>
+                        <button onClick={() => setShowEditProdUi(false)} className="cancelBtn">Cancel</button>
+                    </div>
                 </div>
             }
 

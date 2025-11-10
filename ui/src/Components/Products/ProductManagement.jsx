@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getProducts } from '../Services/Product/getProducts.js';
-import { deleteProd } from '../Services/Product/deleteProduct.js';
-import Overlay from './Overlay.jsx';
-import AddProductComp from './Products/AddProductComp.jsx';
-import EditProductComp from './Products/EditProductComp.jsx';
+import { getProducts } from '../../Services/Product/getProducts.js';
+import { deleteProd } from '../../Services/Product/deleteProduct.js';
+import Overlay from '../Overlay.jsx';
+import AddProductComp from './AddProductComp.jsx';
+import EditProductComp from './EditProductComp.jsx';
 
 const ProductManagement = () => {
     const [products, setProducts] = useState([]);
@@ -51,9 +51,9 @@ const ProductManagement = () => {
     return (
         <>
             {(showAddProdUi || showEditProdUi) && <Overlay />} {/* Overlay for AddProductComp.jsx */}
-            <div>
-                <span>Product Management</span>
-                <div style={{ borderTop: '1px solid black', width: '1500px', marginLeft: '-10px', }}></div>
+            <div className="containerDiv">
+                <h2>Product Management</h2>
+        <div className="divider"></div>
                 <button onClick={() => {
                     setShowAddProdUi(true);
                 }} className="addProdBtn">Add A New Product</button>
@@ -72,7 +72,7 @@ const ProductManagement = () => {
                                 <td>{product.name}</td>
                                 <td className="unitCell">{product.uom_name}</td>
                                 <td className="priceCell"> {product.price_per_unit}</td>
-                                <td style={{ textAlign: 'center' }}>
+                                <td style={{ textAlign: "center" }}>
                                     <button onClick={() => handleEdit(product)}>Edit</button>
                                     <button onClick={() => deleteProduct(product.product_id, product.name)}
                                         className="deleteBtn">Delete</button>
