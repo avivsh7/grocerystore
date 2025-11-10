@@ -19,9 +19,15 @@ h2 {
   color: black;
 }
 
+.newOrderHeader {
+  margin-bottom: 22px;
+  margin-top: 22px;
+  font-Size: 1.3rem;
+}
+
 span {
   color: black;
-  margin: 5px;
+
 }
 
 .divider {
@@ -86,9 +92,11 @@ td {
 .containerDiv {
   background-color: white;
   margin: 20px auto;
+  padding: 20px;
   max-width: 1200px;
   width: 100%;
-  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
 }
 
 .popUpDiv {
@@ -105,7 +113,31 @@ td {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 10px;
+}
 
+.orderItemDiv {
+  background-color: white;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.itemSelect {
+  margin: 15px;
+  margin-left: 90px;
+  margin-right: 70px;
+  padding: 10px;
+  background-color: rgb(243, 245, 247);
+}
+
+.itemInput {
+  margin-left: 30px;
+  margin-right: 50px;
+  padding: 10px;
+  background-color: rgb(243, 245, 247);
 }
 
 .Overlay::after {
@@ -131,14 +163,12 @@ td {
   background-color: rgb(238, 238, 238);
   float: right;
   padding: 10px;
-  margin-top: -10px;
+  margin-top: -50px;
 }
 
 
 .totalDiv {
-  /* This class ensures the total bar is centered and looks like the containerDiv */
-  /* Combine margin-top and margin: auto for centering */
-  margin: 100px auto 20px auto;
+  margin: 25px auto;
   background-color: white;
   max-width: 1200px;
   width: 100%;
@@ -146,6 +176,7 @@ td {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 button {
@@ -169,6 +200,11 @@ button {
 
 .cancelBtn {
   float: right;
+}
+
+.addMoreBtn {
+  background-color: rgb(0, 80, 210);
+  color: white;
 }
 
 .priceCell {
