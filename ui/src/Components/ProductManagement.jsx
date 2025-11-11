@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/Product/getProducts.js';
 import { deleteProd } from '../Services/Product/deleteProduct.js';
-import Overlay from './Overlay.jsx';
 import AddProductComp from './Products/AddProductComp.jsx';
 import EditProductComp from './Products/EditProductComp.jsx';
 
@@ -31,13 +30,15 @@ const ProductManagement = () => {
             return;
         }
         try {
-            const response = await deleteProd(prodId, prodName);
+            const response = await deleteProd(prodId);
             alert("Product " + prodName + " deleted successfully!");
+
             fetchProducts();
         }
         catch (err) {
             alert("Failed to delete product " + prodName + "!");
 
+            console.error(err);
         }
     }
 
@@ -50,7 +51,7 @@ const ProductManagement = () => {
 
     return (
         <>
-            {(showAddProdUi || showEditProdUi) && <Overlay />} {/* Overlay for AddProductComp.jsx */}
+            {(showAddProdUi || showEditProdUi) && <div className="Overlay" />} {/* Overlay for AddProductComp.jsx */}
             <div>
                 <span>Product Management</span>
                 <div style={{ borderTop: '1px solid black', width: '1500px', marginLeft: '-10px', }}></div>

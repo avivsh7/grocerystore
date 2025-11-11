@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getProducts } from '../../Services/Product/getProducts.js';
 import { deleteProd } from '../../Services/Product/deleteProduct.js';
-import Overlay from '../Overlay.jsx';
 import AddProductComp from './AddProductComp.jsx';
 import EditProductComp from './EditProductComp.jsx';
+
 
 const ProductManagement = () => {
     const [products, setProducts] = useState([]);
@@ -50,10 +50,10 @@ const ProductManagement = () => {
 
     return (
         <>
-            {(showAddProdUi || showEditProdUi) && <Overlay />} {/* Overlay for AddProductComp.jsx */}
+            {(showAddProdUi || showEditProdUi) && <div className="Overlay" />} {/* Overlay for AddProductComp.jsx */}
             <div className="containerDiv">
                 <h2>Product Management</h2>
-        <div className="divider"></div>
+                <div className="divider"></div>
                 <button onClick={() => {
                     setShowAddProdUi(true);
                 }} className="addProdBtn">Add A New Product</button>

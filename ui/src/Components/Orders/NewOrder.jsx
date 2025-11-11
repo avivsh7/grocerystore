@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "../../Services/Product/getProducts";
+import { insertOrder } from "../../Services/Order/InsertOrder"
+
 
 const NewOrder = () => {
-  const [customerName, setCustomerName] = useState("");
+  const [customerName, setCustomerName] = useState('');
   const [items, setItems] = useState([]);
   const [products, setProducts] = useState([]);
-  const [itemId, setItemId] = useState(1)
+  const [itemId, setItemId] = useState(1);
 
   useEffect(() => {
     fetchProducts();
@@ -20,10 +22,31 @@ const NewOrder = () => {
     }
   }
 
-  // Creates an empty object when clicking 'Add More', with a unique Id
+  async function addOrder(customerName, items, grandTotal) {
+    if (customerName === '') {
+      alert('Customer name is needed to send an order!')
+      return;
+    }
+    try {
+      const response = await insertOrder(customerName, items, grandTotal);
+      alert('Order received successfully!')
+      console.log(response)
+    } catch (err) {
+      alert('Order submission failed, please check console.')
+      console.error(err);
+    }
+  }
+
+  function removeItem(itemId) {
+    const newItems = items.filter(item => item.id !== itemId)
+    setItems(newItems)
+  }
+
+  // Creates an empty object when clicking 'Add Item', with a unique Id
   const handleAddItem = () => {
     const newItem = {
       id: itemId,
+      productId: '',
       productName: '',
       price: '0.00',
       quantity: '1',
@@ -51,6 +74,7 @@ const NewOrder = () => {
 
         return {
           ...item,
+          productId: selectedProduct.product_id,
           productName: selectedProductName,
           price: selectedProduct.price_per_unit,
           total: Total,
@@ -80,7 +104,7 @@ const NewOrder = () => {
     }));
   };
 
-  const orderTotal = items.reduce((sum, item) => sum + (parseFloat(item.total) || 0), 0).toFixed(2);
+  const grandTotal = items.reduce((sum, item) => sum + (parseFloat(item.total)), 0).toFixed(2);
 
 
   return (
@@ -92,7 +116,6 @@ const NewOrder = () => {
           placeholder="Customer Name"
           className="customerNameInput"
           type="text"
-          value={customerName}
         />
         <div className="divider"></div>
 
@@ -104,7 +127,7 @@ const NewOrder = () => {
               <th>Quantity</th>
               <th>Total</th>
               <th>
-                <button onClick={handleAddItem} className="addMoreBtn">Add More</button>
+                <button onClick={handleAddItem} className="addMoreBtn">Add Item</button>
               </th>
             </tr>
           </thead>
@@ -148,19 +171,20 @@ const NewOrder = () => {
             />
 
             {/* Total Input */}
-            <input
+            <input style={{ marginRight: '60px ' }}
               type="text"
               value={item.total}
               readOnly
             />
-
+            <button className="deleteBtn" onClick={() => removeItem(item.id)}>Remove</button>
           </div>
         ))}
+
       </div>
 
       <div className="totalDiv">
-        Total: &nbsp; &nbsp; <input className="totalInput" value={orderTotal} type="text" readOnly /> &nbsp; ILS
-        <button className="saveBtn">Save</button>
+        Total: &nbsp; &nbsp; <input className="totalInput" value={grandTotal} type="text" readOnly /> &nbsp; ILS
+        <button onClick={() => addOrder(customerName, items, grandTotal)} className="saveBtn">Save</button>
       </div>
     </>
   )

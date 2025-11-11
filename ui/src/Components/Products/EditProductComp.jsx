@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { updateProduct } from "../../Services/Product/editProduct.js";
 import { getUoms } from "../../Services/Uom/getUoms.js"
 
+
 const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, product }) => {
 
     const [prodName, setprodName] = useState(product.name);
@@ -24,12 +25,17 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
     }
 
     async function handleEdit() {
+        if (prodName.length > 45) {
+            alert('Product name cannot exceed 45 characters!')
+            return;
+        }
         try {
             const response = await updateProduct(prodName, price, uomId, prodId);
             setShowEditProdUi(false);
             alert('Product with ID: ' + product.product_id + " Updated Successfully")
             fetchProducts();
         } catch (err) {
+            alert('Failed to edit product.')
             console.error(err);
         }
     }

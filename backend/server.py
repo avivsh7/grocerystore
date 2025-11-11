@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import products_dao, uoms_dao
+from backend import order_dao
 from sql_connection import get_sql_connection
 from flask_cors import CORS
 
@@ -13,21 +14,34 @@ def get_products():
     response = products
     return response
 
+
 @app.route('/editProduct', methods=['PUT'])
 def edit_product():
     data = request.get_json()
-    response = products_dao.edit_product(connection, request.get_json())
+    response = products_dao.edit_product(connection, data)
     return jsonify(response)
 
 
-@app.route('/addProduct', methods=['POST'])
+@app.route('/insertOrder', methods=['POST'])
+def insert_order():
+    data = request.get_json()
+    order_id = order_dao.insert_order(connection, data)
+    response = {
+        'order_id': order_id
+    }
+    return response
+
+
+
+
+@app.route('/insertProduct', methods=['POST'])
 def add_product():
-    product_id = products_dao.insert_new_product(connection, request.get_json())
+    data = request.get_json()
+    product_id = products_dao.insert_new_product(connection, data)
     response = {
         'new_product_id': product_id
     }
     return response
-
 
 
 @app.route('/deleteProduct', methods=['DELETE'])

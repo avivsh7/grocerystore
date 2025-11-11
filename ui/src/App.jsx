@@ -8,13 +8,13 @@ function App() {
 
   return (
     <>
-    <NavBar />
-   <Routes>
-    <Route path='/productManagement' element={<ProductManagement />}></Route>
-    <Route path='/orders' element={<OrdersComp />}></Route>
-    <Route path='/orders/newOrder' element={<NewOrder />}></Route>
-   </Routes>
-   </>
+      <NavBar />
+      <Routes>
+        <Route path='/productManagement' element={<ProductManagement />}></Route>
+        <Route path='/orders' element={<OrdersComp />}></Route>
+        <Route path='/orders/newOrder' element={<NewOrder />}></Route>
+      </Routes>
+    </>
   )
 }
 

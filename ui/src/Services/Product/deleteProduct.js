@@ -5,6 +5,7 @@ export async function deleteProd(prodId) {
     try {
         const { data } = await axios.delete(`${DELETE_PROD_API}`, { data: { product_id: prodId } });
         return data;
+
     } catch (err) {
         throw err;
     }
