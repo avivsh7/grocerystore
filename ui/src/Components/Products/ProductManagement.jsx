@@ -50,7 +50,6 @@ const ProductManagement = () => {
 
     return (
         <>
-            {(showAddProdUi || showEditProdUi) && <div className="Overlay" />} {/* Overlay for AddProductComp.jsx */}
             <div className="containerDiv">
                 <h2>Product Management</h2>
                 <div className="divider"></div>
@@ -82,7 +81,9 @@ const ProductManagement = () => {
                     </tbody>
                 </table>
             </div>
-
+            {/* Dark overlay for Add and Edit product components */}
+            {(showAddProdUi || showEditProdUi) && <div className="Overlay" />}
+            
             {/* Pop-up div to add a product */}
             {showAddProdUi && <AddProductComp
                 fetchProducts={fetchProducts}
