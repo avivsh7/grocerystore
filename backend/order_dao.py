@@ -46,7 +46,3 @@ def get_all_orders(connection):
             'datetime': datetime
         })
     return response
-
-if __name__ == '__main__':
-    connection = get_sql_connection()
-    print(get_all_orders(connection))
