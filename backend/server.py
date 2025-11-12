@@ -10,9 +10,14 @@ CORS(app)
 connection = get_sql_connection()
 @app.route('/getProducts', methods=['GET'])
 def get_products():
-    products = products_dao.get_all_products(connection)
-    response = products
-    return response
+    response = products_dao.get_all_products(connection)
+    return jsonify(response)
+
+@app.route('/getAllOrders', methods=['GET'])
+def get_orders():
+    response = order_dao.get_all_orders(connection)
+    return jsonify(response)
+
 
 
 @app.route('/editProduct', methods=['PUT'])
@@ -29,7 +34,7 @@ def insert_order():
     response = {
         'order_id': order_id
     }
-    return response
+    return jsonify(response)
 
 
 
@@ -41,7 +46,7 @@ def add_product():
     response = {
         'new_product_id': product_id
     }
-    return response
+    return jsonify(response)
 
 
 @app.route('/deleteProduct', methods=['DELETE'])
@@ -52,13 +57,12 @@ def delete_product():
     response = {
         'deleted_product_id': product_id
     }
-    return response
+    return jsonify(response)
 
 @app.route('/getUoms', methods=['GET'])
 def get_uoms():
-    uoms = uoms_dao.get_uoms(connection)
-    response = uoms
-    return response
+    response = uoms_dao.get_uoms(connection)
+    return jsonify(response)
 
 if __name__ == "__main__":
     print("Starting Python Flask Server for Grocery Store Management System")

@@ -40,7 +40,7 @@ def delete_product(connection, product_id):
     connection.commit()
     return cursor.lastrowid
 
-#
+
 def edit_product(connection, product):
     cursor = connection.cursor()
     query = ("UPDATE products SET "

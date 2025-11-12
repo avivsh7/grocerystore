@@ -20,7 +20,6 @@ const ProductManagement = () => {
         try {
             const data = await getProducts();
             setProducts(data);
-            return data;
         } catch (err) {
             console.error(err.response);
         }

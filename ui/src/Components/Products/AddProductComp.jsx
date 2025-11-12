@@ -41,6 +41,7 @@ const AddProductComp = ({ fetchProducts, showAddProdUi, setShowAddProdUi }) => {
             console.error(err.response);
         }
     }
+    
     return (
         <>
             {showAddProdUi &&

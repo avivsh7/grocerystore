@@ -72,6 +72,7 @@ table {
   border: 1px solid #ddd;
 }
 
+
 .borderlessTable {
   border-collapse: collapse;
   border: none;
@@ -81,7 +82,9 @@ th,
 td {
   border: 1px solid #ddd;
   padding: 8px;
-  color: black
+  color: black;
+  text-align: center;
+  vertical-align: center;
 }
 
 .borderlessTable th,

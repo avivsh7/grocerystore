@@ -64,7 +64,6 @@ const NewOrder = () => {
     // Get product data from products
     const selectedProduct = products.find(product => product.name === selectedProductName);
 
-
     // Product selection update
     setItems(items => items.map(item => {
       if (item.id === itemId) {
