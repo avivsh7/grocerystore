@@ -3,6 +3,8 @@ import ProductManagement from './Components/Products/ProductManagement'
 import NavBar from './Components/NavBar'
 import OrdersComp from './Components/Orders/OrdersComp'
 import NewOrder from './Components/Orders/NewOrder'
+import OrderDetailsComp from './Components/Orders/OrderDetailsComp'
+import IndexPage from './Components/IndexPage'
 
 function App() {
 
@@ -10,9 +12,11 @@ function App() {
     <>
       <NavBar />
       <Routes>
-        <Route path='/productManagement' element={<ProductManagement />}></Route>
-        <Route path='/orders' element={<OrdersComp />}></Route>
-        <Route path='/orders/newOrder' element={<NewOrder />}></Route>
+        <Route path='/' element={<IndexPage />} />
+        <Route path='/productManagement' element={<ProductManagement />} />
+        <Route path='/orders' element={<OrdersComp />} />
+        <Route path='/orders/newOrder' element={<NewOrder />} />
+        <Route path='/orders/orderDetails/:orderId' element={<OrderDetailsComp />} />
       </Routes>
     </>
   )

@@ -43,20 +43,20 @@ const EditProductComp = ({ fetchProducts, setShowEditProdUi, showEditProdUi, pro
     return (
         <>
             {showEditProdUi &&
-                <div className="popUpDiv">
+                <div className="popup-div">
                     <h3>Edit a product!</h3>
-                    Product name: <br /> <input className="addEditProdInput" onChange={(e) => setprodName(e.target.value)} type="text" value={prodName} /> <br />
-                    Unit: <br /> <select className="addEditProdSelect" value={uomId} onChange={(e) => setUomId(e.target.value)} >
+                    Product name: <br /> <input className="add-edit-prod-input" onChange={(e) => setprodName(e.target.value)} type="text" value={prodName} /> <br />
+                    Unit: <br /> <select className="add-edit-prod-select" value={uomId} onChange={(e) => setUomId(e.target.value)} >
                         {uoms.map((uom) => (
                             <option value={uom.uom_id} key={uom.uom_id}>{uom.uom_name}</option>
                         ))}
 
                     </select>
                     <br />
-                    Price: <br /> <input className="addEditProdInput" onChange={(e) => setPrice(e.target.value)} value={price} type="number" /> <br />
-                    <div className="addEditbuttonsContainer">
-                        <button onClick={() => handleEdit()} className="saveBtn">Save</button>
-                        <button onClick={() => setShowEditProdUi(false)} className="cancelBtn">Cancel</button>
+                    Price: <br /> <input className="add-edit-prod-input" onChange={(e) => setPrice(e.target.value)} value={price} type="number" /> <br />
+                    <div className="add-edit-buttons-container">
+                        <button onClick={() => handleEdit()} className="save-btn">Save</button>
+                        <button onClick={() => setShowEditProdUi(false)} className="cancel-btn">Cancel</button>
                     </div>
                 </div>
             }

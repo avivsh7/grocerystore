@@ -1,7 +1,7 @@
 def get_uoms(connection):
     cursor = connection.cursor()
 
-    query = ("select * from grocery_store.uom")
+    query = ("SELECT * FROM grocery_store.uom")
 
     cursor.execute(query)
 

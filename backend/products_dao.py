@@ -3,8 +3,8 @@
 def get_all_products(connection):
     cursor = connection.cursor()
 
-    query = ("select products.product_id, products.name, products.uom_id, products.price_per_unit, uom.uom_name "
-             "from products inner join uom on products.uom_id=uom.uom_id")
+    query = ("SELECT products.product_id, products.name, products.uom_id, products.price_per_unit, uom.uom_name "
+             "FROM products INNER JOIN uom ON products.uom_id=uom.uom_id")
 
     cursor.execute(query)
 

@@ -2,6 +2,7 @@ from datetime import datetime
 
 from sql_connection import get_sql_connection
 
+connection = get_sql_connection()
 
 def insert_order(connection, order):
     cursor = connection.cursor()
@@ -46,3 +47,27 @@ def get_all_orders(connection):
             'datetime': datetime
         })
     return response
+
+
+def get_order_details(connection, order_id):
+    cursor = connection.cursor(dictionary=True)
+    query = ("SELECT * from order_details WHERE order_id =" +str(order_id))
+    cursor.execute(query)
+    order_details = cursor.fetchall()
+    connection.commit()
+    return order_details
+
+def get_order_summary(connection, order_id):
+    cursor = connection.cursor(dictionary=True)
+    query = ("SELECT o.order_id, o.customer_name, o.total AS order_total, "
+            "DATE_FORMAT(o.datetime, '%Y-%m-%d %H:%i:%s') AS datetime, "
+            "p.name, od.quantity, od.total_price AS item_total_price "
+            "FROM order_details AS od join "
+            "products AS p ON od.product_id = p.product_id "
+            "join orders AS o ON od.order_id = o.order_id "
+            "WHERE o.order_id =" +str(order_id))
+    cursor.execute(query)
+    order_info = cursor.fetchall()
+    connection.commit()
+    return order_info
+

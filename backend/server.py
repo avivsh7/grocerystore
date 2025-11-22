@@ -18,6 +18,11 @@ def get_orders():
     response = order_dao.get_all_orders(connection)
     return jsonify(response)
 
+@app.route('/getOrderSummary', methods=['GET'])
+def get_order_summary():
+    order_id = int(request.args.get('order_id'))
+    response = order_dao.get_order_summary(connection, order_id)
+    return jsonify(response)
 
 
 @app.route('/editProduct', methods=['PUT'])
@@ -30,6 +35,7 @@ def edit_product():
 @app.route('/insertOrder', methods=['POST'])
 def insert_order():
     data = request.get_json()
+    print(data)
     order_id = order_dao.insert_order(connection, data)
     response = {
         'order_id': order_id

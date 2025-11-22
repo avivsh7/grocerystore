@@ -49,13 +49,13 @@ const ProductManagement = () => {
 
     return (
         <>
-            <div className="containerDiv">
+            <div className="products-table-container">
                 <h2>Product Management</h2>
                 <div className="divider"></div>
                 <button onClick={() => {
                     setShowAddProdUi(true);
                 }} className="addProdBtn">Add A New Product</button>
-                <table>
+                <table className="products-table">
                     <thead>
                         <tr>
                             <th>Item</th>
@@ -68,12 +68,12 @@ const ProductManagement = () => {
                         {products.map(product =>
                             <tr key={product.product_id}>
                                 <td>{product.name}</td>
-                                <td className="unitCell">{product.uom_name}</td>
-                                <td className="priceCell"> {product.price_per_unit}</td>
+                                <td className="unit-cell">{product.uom_name}</td>
+                                <td className="price-cell"> {product.price_per_unit}</td>
                                 <td style={{ textAlign: "center" }}>
                                     <button onClick={() => handleEdit(product)}>Edit</button>
                                     <button onClick={() => deleteProduct(product.product_id, product.name)}
-                                        className="deleteBtn">Delete</button>
+                                        className="delete-btn">Delete</button>
                                 </td>
                             </tr>)}
 

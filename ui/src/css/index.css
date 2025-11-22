@@ -2,36 +2,54 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  /* This is the fix! */
 }
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.87);
+  color: #000000de;
   background-image: url('../Pictures/supermarket-blur.jpg');
   background-size: cover;
 }
 
-
 h1,
 h2 {
-  color: black;
+  color: #000000;
 }
 
-.newOrderHeader {
+.products-table-container {
+  max-width: 1225px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px #0000004d;
+  background-color: #ffffff;
+}
+
+.products-table thead tr {
+  background-color: #f5f5f5;
+}
+
+.products-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.products-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.new-order-header {
   margin-bottom: 22px;
   margin-top: 22px;
-  font-Size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 span {
-  color: black;
-
+  color: #000000;
 }
 
 .divider {
-  border-top: 1px solid black;
+  border-top: 1px solid #000000;
   width: 100%;
   margin: 0 -20px;
   padding: 0 20px;
@@ -41,179 +59,283 @@ span {
 .addProdBtn {
   margin: 15px;
   padding: 10px;
-  color: white;
-  background: rgb(0, 80, 210);
+  color: #ffffff;
+  background: #0050d2;
   float: right;
 }
 
 .addOrderBtn {
   margin: 8px;
   padding: 10px;
-  color: white;
-  background: rgb(0, 80, 210);
+  color: #ffffff;
+  background: #0050d2;
   float: right;
 }
 
-.prodMngBtn {
+.prod-mng-btn {
   margin: 8px;
   padding: 10px;
-  color: white;
-  background: rgb(0, 80, 210);
+  color: #ffffff;
+  background: #0050d2;
   float: right;
 }
 
-.addEditbuttonsContainer {
+.add-edit-buttons-container {
   padding-top: 20px;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
 }
 
-
-.borderlessTable {
+.borderless-table {
   border-collapse: collapse;
   border: none;
 }
 
 th,
 td {
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 8px;
-  color: black;
+  color: #000000;
   text-align: center;
   vertical-align: center;
 }
 
-.borderlessTable th,
-.borderlessTable td {
+.borderless-table th,
+.borderless-table td {
   border: none;
 }
 
-.containerDiv {
-  background-color: white;
+.container-div {
+  background-color: #ffffff;
   margin: 20px auto;
   padding: 20px;
   max-width: 1200px;
   width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
+  box-shadow: 0 0 10px #0000004d;
+  border-radius: 12px;
 }
 
-.popUpDiv {
+.orders-table thead tr {
+  background-color: #f5f5f5;
+}
+
+.orders-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.orders-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.orders-table-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px #0000004d;
+  background-color: #ffffff;
+}
+
+.order-details-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px #0000004d;
+  background-color: #ffffff;
+}
+
+.order-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.order-details-table thead tr {
+  background-color: #f5f5f5;
+}
+
+.order-details-table th {
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
+}
+
+.order-details-table td {
+  padding: 15px 10px;
+  border-bottom: 2px solid #cccccc;
+}
+
+.order-details-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.order-details-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.dashed-seperator-line {
+  margin-top: 30px;
+  text-align: right;
+  font-size: 1.5rem;
+  padding-top: 20px;
+  border-top: 2px dashed #dddddd;
+}
+
+.popup-div {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -110%);
   width: 620px;
   height: 295px;
-  background-color: white;
+  background-color: #ffffff;
   z-index: 100;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px #0000004d;
   border-radius: 8px;
   padding: 10px;
 }
 
-.orderItemDiv {
-  background-color: white;
+.order-item-div {
+  background-color: #ffffff;
   max-width: 1200px;
   width: 100%;
-  display: flex;
-  align-items: center;
   margin: 20px auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px #0000004d;
+  border-radius: 12px;
 }
 
-.itemSelect {
+.item-select {
   margin: 15px;
-  margin-left: 80px;
-  margin-right: 30px;
+  margin-left: 50px;
   padding: 10px;
-  background-color: rgb(243, 245, 247);
+  background-color: #f3f5f7;
 }
 
-.itemInput {
+.item-input {
   margin-left: 20px;
   margin-right: 50px;
   padding: 10px;
-  background-color: rgb(243, 245, 247);
+  background-color: #f3f5f7;
+}
+
+.item-total-input {
+  margin-left: 20px;
+  margin-right: 50px;
+  padding: 10px;
+  background-color: #f3f5f7;
+}
+
+.items-total-input {
+  padding: 10px;
+  background-color: #f3f5f7;
 }
 
 .Overlay::after {
   position: absolute;
   inset: 0;
   background: #0007;
-  content: ''
+  content: '';
 }
 
-.addEditProdInput {
-  background-color: rgb(238, 238, 238);
+.add-edit-prod-input {
+  background-color: #eeeeee;
   width: 100%;
   box-sizing: border-box;
 }
 
-.addEditProdSelect {
-  background-color: rgb(238, 238, 238);
+.add-edit-prod-select {
+  background-color: #eeeeee;
   width: 100%;
   box-sizing: border-box;
 }
 
-.customerNameInput {
-  background-color: rgb(238, 238, 238);
+.customer-name-input {
+  background-color: #eeeeee;
   float: right;
   padding: 10px;
   margin-top: -50px;
 }
 
-
-.totalDiv {
+.total-div {
   margin: 25px auto;
-  background-color: white;
+  background-color: #ffffff;
   max-width: 1200px;
   width: 100%;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px #0000004d;
+  border-radius: 12px;
 }
 
 button {
   margin: 8px;
   padding: 8px;
-  color: black;
-  background-color: rgb(238, 238, 2238)
+  color: #000000;
+  background-color: #EEEEFF;
+  /* fixed invalid rgb() */
+  cursor: pointer;
 }
 
-.deleteBtn {
-  color: white;
-  background: rgb(238, 96, 86);
-  padding: 5px;
+.index-button:hover {
+  background-color: #96bdd8;
 }
 
-.saveBtn {
-  color: white;
-  background-color: rgb(0, 80, 210);
+.index-button-container {
+  text-align: center;
+  margin: 60px;
+}
+
+.index-button {
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 700px;
+  border-radius: 30px;
+  font-size: x-large;
+}
+
+.remove-btn {
+  color: #ffffff;
+  background: #ee6056;
+  float: right;
+  margin-top: 15px;
+  margin-right: 22px;
+}
+
+.delete-btn {
+  color: #ffffff;
+  background: #ee6056;
+}
+
+.save-btn {
+  color: #ffffff;
+  background-color: #0050d2;
   float: right;
 }
 
-.cancelBtn {
+.cancel-btn {
   float: right;
 }
 
-.addMoreBtn {
-  background-color: rgb(0, 80, 210);
-  color: white;
+.add-item-btn {
+  background-color: #0050d2;
+  color: #ffffff;
+  float: right;
+  margin-right: -5px;
 }
 
-.priceCell {
+.price-cell {
   width: 350px;
 }
 
-.unitCell {
-  width: 300px
+.unit-cell {
+  width: 300px;
 }

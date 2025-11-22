@@ -4,7 +4,7 @@ import "../css/navbar.css";
 const NavBar = () => {
     return (
         <nav className="navbar">
-            <h2 className="navbar-title">Grocery Store Application</h2>
+            <h2 className="navbar-title">Grocery Store Management System</h2>
 
             {/* Products */}
             <a href="/productManagement" className="nav-link"><svg
