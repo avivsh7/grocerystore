@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import products_dao, uoms_dao
-from backend import order_dao
+import order_dao
 from sql_connection import get_sql_connection
 from flask_cors import CORS
 
